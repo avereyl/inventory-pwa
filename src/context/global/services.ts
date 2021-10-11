@@ -1,3 +1,5 @@
+import { LocationType } from "../../types/Location";
+import ProgressSuccess from "../../types/ProgressSuccess";
 import { ThemeMode } from "../../types/Themes";
 import { CheckedLineBehavior, GlobalState } from "./types";
 
@@ -85,5 +87,30 @@ export const newStateWithSwitchedCheckLinedBehavior = (
           ? CheckedLineBehavior.HIDE
           : CheckedLineBehavior.CROSS_OUT,
     },
+  };
+};
+
+export const newStateWithSavedProgress = (
+  state: GlobalState,
+  locationType: LocationType
+): GlobalState => {
+  const valueDate : Date = new Date();
+  //TODO add or update
+  const success : ProgressSuccess =  {locationType, valueDate};
+  return {
+    ...state,
+    successes: [...state.successes, success],
+  };
+};
+
+export const newStateWithClearedProgress = (
+  state: GlobalState,
+  locationType: LocationType
+): GlobalState => {
+  return {
+    ...state,
+    successes: [...state.successes].filter(
+      (s) => s.locationType !== locationType
+    ),
   };
 };

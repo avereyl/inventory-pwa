@@ -79,7 +79,7 @@ export const initialState: GlobalState = {
     theme: ThemeMode.LIGHT,
     checkedLineBehavior: CheckedLineBehavior.CROSS_OUT,
   },
-  progresses: [],
+  successes: [],
 };
 
 export const useGlobalContext = () => useContext(globalContext);

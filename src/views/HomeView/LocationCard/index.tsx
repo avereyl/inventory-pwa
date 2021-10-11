@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 import { Box } from "@mui/system";
 import { useTranslation } from "react-i18next";
-import { getProgressValue } from "../../../context/global/progressServices";
+import { getProgressValue } from "../../../context/progress/services";
 import { Location, LocationType } from "../../../types/Location";
 import Progress, { ProgressStatus } from "../../../types/Progress";
 
@@ -19,6 +19,7 @@ export type LocationCardProps = {
   location: Location;
   mediaPath?: string;
   progress: Progress;
+  latestSuccessDate?: Date;
   handleClick: () => void;
 };
 
@@ -29,7 +30,15 @@ const mediaPathMap: Map<LocationType, string> = new Map([
 ]);
 
 const LocationCard = (props: LocationCardProps) => {
-  const { title, version, progress, mediaPath, location, handleClick } = props;
+  const {
+    title,
+    version,
+    progress,
+    latestSuccessDate,
+    mediaPath,
+    location,
+    handleClick,
+  } = props;
   const { t } = useTranslation();
   const media =
     mediaPath ||
@@ -54,7 +63,7 @@ const LocationCard = (props: LocationCardProps) => {
               value={getProgressValue(progress)}
             />
           )}
-          {progress.status === ProgressStatus.COMPLETE && (
+          {latestSuccessDate && (
             <>
               <Box
                 flexDirection="row"
@@ -62,13 +71,11 @@ const LocationCard = (props: LocationCardProps) => {
                 alignItems="flex-end"
                 justifyContent="space-between"
               >
-                {progress.endDate && (
-                  <Typography variant="body2" color="text.secondary">
-                    {t("screens.home.labels.checkedDate", {
-                      date: new Date(progress.endDate).toLocaleDateString("fr"),
-                    })}
-                  </Typography>
-                )}
+                <Typography variant="body2" color="text.secondary">
+                  {t("screens.home.labels.checkedDate", {
+                    date: new Date(latestSuccessDate).toLocaleDateString("fr"),
+                  })}
+                </Typography>
                 <CheckCircle sx={{ color: "success.main" }} />
               </Box>
             </>

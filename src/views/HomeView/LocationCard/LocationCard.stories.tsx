@@ -61,4 +61,5 @@ MedipackDone.args = {
   location: medipack,
   mediaPath: "/assets/medipack.webp",
   progress: medipackProgress,
+  latestSuccessDate: new Date(),
 };

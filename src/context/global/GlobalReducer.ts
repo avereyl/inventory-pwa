@@ -2,23 +2,18 @@ import log from "loglevel";
 import { GlobalAction, GlobalActionType, GlobalState } from "./types";
 import { initialState } from "./GlobalStore";
 import {
+  newStateWithClearedProgress,
   newStateWithCOCheckLinedBehavior,
   newStateWithDarkThemeMode,
   newStateWithHideCheckLinedBehavior,
   newStateWithLightThemeMode,
+  newStateWithSavedProgress,
   newStateWithSetCheckLinedBehavior,
   newStateWithSetThemeMode,
   newStateWithSwitchedCheckLinedBehavior,
   newStateWithSwitchedThemeMode,
-} from "./settingsServices";
-import {
-  newStateWithCompletedProgress,
-  newStateWithResetProgress,
-  newStateWithDeletedProgress,
-  newStateWithStartedProgress,
-  newStateWithToggledProgressLine,
-  newStateWithSavedProgress,
-} from "./progressServices";
+} from "./services";
+
 
 const GlobalReducer = (state: GlobalState, action: GlobalAction): any => {
   log.debug(
@@ -42,21 +37,13 @@ const GlobalReducer = (state: GlobalState, action: GlobalAction): any => {
       return newStateWithSetCheckLinedBehavior(state, action.payload);
     case GlobalActionType.SETTINGS_TOGGLE_CHECKED_LINE_BEHAVIOR:
       return newStateWithSwitchedCheckLinedBehavior(state);
-    // progress related actions
-    case GlobalActionType.PROGRESS_START:
-      return newStateWithStartedProgress(state, action.payload);
-    case GlobalActionType.PROGRESS_COMPLETE:
-      return newStateWithCompletedProgress(state, action.payload);
-    case GlobalActionType.PROGRESS_RESET:
-      return newStateWithResetProgress(state, action.payload);
-    case GlobalActionType.PROGRESS_DELETE:
-      return newStateWithDeletedProgress(state, action.payload);
-    case GlobalActionType.PROGRESS_TOGGLE_LINE:
-      return newStateWithToggledProgressLine(state, action.payload);
-    case GlobalActionType.PROGRESS_SAVE:
-      return newStateWithSavedProgress(state, action.payload);
-    // state related actions
 
+    case GlobalActionType.SAVE_PROGRESS_SUCCESS:
+      return newStateWithSavedProgress(state, action.payload);
+    case GlobalActionType.CLEAR_PROGRESS_SUCCESS:
+      return newStateWithClearedProgress(state, action.payload);
+    
+    // state related actions
     case GlobalActionType.SET_PERSISTENCE:
       return {
         ...state,

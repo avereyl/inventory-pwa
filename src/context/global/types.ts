@@ -1,12 +1,12 @@
 import { Dispatch } from "react";
-import Progress from "../../types/Progress";
+import ProgressSuccess from "../../types/ProgressSuccess";
 import { ThemeMode } from "../../types/Themes";
 
 // as this object will be serialized as a string with JSON.stringify, do not includes methods but only data
 export interface GlobalState {
   persistenceType: PersistenceType;
   userSettings: UserSettings;
-  progresses: Progress[];
+  successes : ProgressSuccess[];
 }
 
 export type UserSettings = {
@@ -36,12 +36,8 @@ export enum GlobalActionType {
   SETTINGS_SET_CHECKED_LINE_BEHAVIOR = "SET_CHECKED_LINE_BEHAVIOR",
   SETTINGS_TOGGLE_CHECKED_LINE_BEHAVIOR = "TOGGLE_CHECKED_LINE_BEHAVIOR",
 
-  PROGRESS_START = "START",
-  PROGRESS_COMPLETE = "COMPLETE",
-  PROGRESS_RESET = "RESET",
-  PROGRESS_DELETE = "DELETE",
-  PROGRESS_TOGGLE_LINE = "TOGGLE_LINE",
-  PROGRESS_SAVE = "SAVE",
+  SAVE_PROGRESS_SUCCESS = "SAVE_PROGRESS_SUCCESS",
+  CLEAR_PROGRESS_SUCCESS = "CLEAR_PROGRESS_SUCCESS",
 
   SET_PERSISTENCE = "SET_PERSISTENCE",
   RESET_STATE = "RESET_STATE",
