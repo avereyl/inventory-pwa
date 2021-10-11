@@ -1,0 +1,48 @@
+{
+    "translation": {
+        "commons":{
+            "labels": {
+                "ok" : "OK"
+            }
+        },
+        "menu" : {
+            "help": "Aide",
+            "about": "A propos",
+            "settings": "Réglages"
+        }, 
+        "actions" : {
+            "navigation": {
+                "gotoHome" : "Aller à l'accueil",
+                "gotoInventory" : "Aller à l'inventaire du {{locationName}}",
+                "gotoHelp" : "Ouvrir l'aide",
+                "gotoAbout" : "Ouvrir la section 'A propos'",
+                "gotoSettings" : "Ouvrir les réglages"
+            }, 
+            "inventory": {
+                "new":"Commencer la vérif",
+                "reset":"Remettre à zéro",
+                "delete":"Supprimer la vérif"
+            },
+            "settings" : {
+
+            }
+        },
+        "screens" : {
+            "home" : {
+                "labels" : {
+                    "inventoryVersion" : "Version du {{version}}",
+                    "checkedDate" : "Vérifié le {{date}}"
+                }
+            },
+            "inventory" : {
+                "labels" : {
+                    "inventorySuccess" : "Bien joué !"
+                },
+                "messages" : {
+                    "success" : "L'inventaire du {{locationName}} est complet. Bonne semaine de garde !"
+                }
+            }
+
+        }
+    }
+}

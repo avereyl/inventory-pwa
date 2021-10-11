@@ -1,25 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import "./App.css";
+import ErrorBoundary from "./components/ui/ErrorBoundary";
+import { GlobalStore } from "./context/global/GlobalStore";
+import "./i18n";
+import AboutView from "./views/AboutView";
+import HelpView from "./views/HelpView";
+import HomeView from "./views/HomeView";
+import InventoryView from "./views/InventoryView";
+import SettingsView from "./views/SettingsView";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <GlobalStore>
+      <ErrorBoundary>
+        <Router>
+          <Switch>
+            <Route path="/help">
+              <HelpView />
+            </Route>
+            <Route path="/about">
+              <AboutView />
+            </Route>
+            <Route path="/settings">
+              <SettingsView />
+            </Route>
+            <Route path="/check/:locationType">
+              <InventoryView />
+            </Route>
+            <Route path="/">
+              <HomeView />
+            </Route>
+          </Switch>
+        </Router>
+      </ErrorBoundary>
+    </GlobalStore>
   );
 }
 

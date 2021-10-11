@@ -1,0 +1,154 @@
+[
+    {
+        "id":"invVSAV",
+        "documentDate" : "2021-09-24",
+        "location" : {
+            "type":"vsav",
+            "name":"VSAV"
+        },
+        "supplies": [
+        ],
+        "children":[
+            {
+                "id":"invVSAVCel",
+                "location" : {
+                    "name":"Cellule"
+                },
+                "supplies": [ 
+                    { "key": "v1_aspiMuco", "name":"Aspirateur de Mucosités", "quantity":1, "tags":["battery"]},
+                    { "key": "v1_attDep_B", "name":"Attelle à Dépression Bras Adulte / Jambe Enfant", "quantity":1, "tags":[]},
+                    { "key": "v1_attDep_J", "name":"Attelle à Dépression Jambe Adulte", "quantity":1, "tags":[]},
+                    { "key": "v1_attDep_P", "name":"Attelle à Dépression Poignet", "quantity":1, "tags":[]},
+                    { "key": "v1_attKed", "name":"Attelle de Ked (3 coussins + sangles front et menton)", "quantity":1, "tags":[]},
+                    { "key": "v1_bandeCrep_05", "name":"Bande de crêpe de 5 cm VELPEAU", "quantity":2, "tags":[]},
+                    { "key": "v1_bandeCrep_10", "name":"Bande de crêpe de 10 cm VELPEAU", "quantity":2, "tags":[]},
+                    { "key": "v1_bandeCrep_20", "name":"Bande de crêpe de 20 cm VELPEAU", "quantity":2, "tags":[]},
+                    { "key": "v1_btDASRI", "name":"Boîte à aiguilles VSAV jetable", "quantity":1, "tags":[]},
+                    { "key": "v1_btGantsUU_67", "name":"Boîte de gants usage unique taille 6/7", "quantity":1, "tags":[]},
+                    { "key": "v1_btGantsUU_78", "name":"Boîte de gants usage unique taille 7/8", "quantity":1, "tags":[]},
+                    { "key": "v1_btGantsUU_89", "name":"Boîte de gants usage unique taille 8/9", "quantity":1, "tags":[]},
+                    { "key": "v1_btGantsUU_910", "name":"Boîte de gants usage unique taille 9/10", "quantity":1, "tags":[]},
+                    { "key": "v1_btlO2_05", "name":"Bouteille O2 5 Litres", "quantity":1, "tags":["level"]},
+                    { "key": "v1_btlO2_15", "name":"Bouteille O2 15 Litres", "quantity":1, "tags":["level"]},
+                    { "key": "v1_cProtDesinf", "name":"Cahier protocole désinfection (à l'immatriculation du vsav)", "quantity":1, "tags":[]},
+                    { "key": "v1_champProtec", "name":"Champ de protection 75X90 cm", "quantity":3, "tags":[]},
+                    { "key": "v1_canuleGuedel_1234", "name":"Canules de Guedel n°1, n°2, n°3, n°4", "quantity":1, "tags":[]},
+                    { "key": "v1_ciseauxJesco", "name":"Ciseaux coupe-vêtement Jesco (dont 1 dans housse DSA)", "quantity":2, "tags":[]},
+                    { "key": "v1_ciseauxDeg", "name":"Ciseaux de dégagement", "quantity":1, "tags":[]},
+                    { "key": "v1_civiereLevage", "name":"Civière de levage + 3 ceintures", "quantity":1, "tags":[]},
+                    { "key": "v1_collierCerv_A", "name":"Collier cervical Adulte", "quantity":2, "tags":[]},
+                    { "key": "v1_collierCerv_E", "name":"Collier cervical Enfant", "quantity":1, "tags":[]},
+                    { "key": "v1_brulstop_GM", "name":"Compresse Gel Brûlures (brulstop) GM", "quantity":1, "tags":["exp_date"]},
+                    { "key": "v1_brulstop_MM", "name":"Compresse Gel Brûlures (brulstop) MM", "quantity":1, "tags":["exp_date"]},
+                    { "key": "v1_brulstop_PM", "name":"Compresse Gel Brûlures (brulstop) PM", "quantity":1, "tags":["exp_date"]},
+                    { "key": "v1_compresses", "name":"Compresses Stériles (paquet de 5)", "quantity":5, "tags":[]},
+                    { "key": "v1_coussinCalage", "name":"Coussin de calage PLS", "quantity":5, "tags":[]},
+                    { "key": "v1_CHU", "name":"Coussin Hémostatique d'Urgence CHUT", "quantity":2, "tags":[]},
+                    { "key": "v1_couvBacterio", "name":"Couverture Bactériostatique VSAV épaisse", "quantity":1, "tags":[]},
+                    { "key": "v1_couvMetalline", "name":"Couverture de survie métalline", "quantity":2, "tags":[]},
+                    { "key": "v1_couvIsotherm", "name":"Couverture Isothermique VSAV (bleu/argent)", "quantity":1, "tags":[]},
+                    { "key": "v1_dakin_60", "name":"Dakin 60 ml", "quantity":4, "tags":["exp_date"]},
+                    { "key": "v1_drap", "name":"Drap de transfert à usage unique", "quantity":5, "tags":[]},
+                    { "key": "v1_DSA_kit", "name":"DSA + carte mémoire + rasoir + 1 paire d'électrodes + 1 kit complet", "quantity":1, "tags":["battery"]},
+                    { "key": "v1_ficheBilan", "name":"Fiche bilan", "quantity":10, "tags":[]},
+                    { "key": "v1_filetTub", "name":"Filet tubulaire (tête ou cuisse)", "quantity":1, "tags":[]},
+                    { "key": "v1_filtreBAVU", "name":"Filtre Antibactérien pour Insufflateur", "quantity":2, "tags":[]},
+                    { "key": "v1_gelHydroAlco", "name":"Gel Hydro-Alcoolique PM 100ml ou 300 ml", "quantity":2, "tags":["exp_date"]},
+                    { "key": "v1_glucopulse", "name":"Glucopulse (dont 1 avec lecteur de glycémie)", "quantity":5, "tags":[]},
+                    { "key": "v1_glyBand", "name":"Glycémie bandelettes", "quantity":20, "tags":["exp_date"]},
+                    { "key": "v1_glyLanc", "name":"Glycémie lancettes autopiqueur", "quantity":20, "tags":[]},
+                    { "key": "v1_housseMortu", "name":"Housse mortuaire (échange avec pompes funèbres)", "quantity":1, "tags":[]},
+                    { "key": "v1_BAVU_A", "name":"Insufflateur à usage unique adulte (+ 2 masques : T 4 et 5 + 1 filtre)", "quantity":1, "tags":[]},
+                    { "key": "v1_BAVU_E", "name":"Insufflateur à usage unique enfant (+ 2 masques : T 1 et 2 + 1 filtre)", "quantity":1, "tags":[]},
+                    { "key": "v1_kitAccouch_BAVU_P", "name":"Kit accouchement + insufflateur à usage unique nourisson", "quantity":1, "tags":["exp_date"]},
+                    { "key": "v1_kitAspiMuco", "name":"Kit Aspirateur LSU (1sonde, 1stop-vide, 1poche, 1flexible, 1 FFP2)", "quantity":2, "tags":[]},
+                    { "key": "v1_kitNOVI", "name":"Kit NOVI", "quantity":1, "tags":[]},
+                    { "key": "v1_kitInfect", "name":"Kit risque infectieux", "quantity":1, "tags":[]},
+                    { "key": "v1_lavette", "name":"Lavette Hygiène VSAV", "quantity":10, "tags":[]},
+                    { "key": "v1_masqueChir", "name":"Masques Chirurgicaux", "quantity":10, "tags":[]},
+                    { "key": "v1_masqueFFP2", "name":"Masques FFP2", "quantity":10, "tags":[]},
+                    { "key": "v1_masqueFIO2_A", "name":"Masque O2 haute concentration Adulte", "quantity":2, "tags":[]},
+                    { "key": "v1_masqueFIO2_E", "name":"Masque O2 haute concentration Enfant", "quantity":2, "tags":[]},
+                    { "key": "v1_MID_A", "name":"Matelas Coquille Adulte", "quantity":1, "tags":[]},
+                    { "key": "v1_MID_E", "name":"Matelas Coquille Enfant", "quantity":1, "tags":[]},
+                    { "key": "v1_NaCl_45", "name":"NACL 0,9 % 45 ml (sérum physiologique)", "quantity":5, "tags":["exp_date"]},
+                    { "key": "v1_NaCl_10", "name":"NACL 0,9 % 10 ml (sérum physiologique)", "quantity":10, "tags":["exp_date"]},
+                    { "key": "v1_pansAmericain", "name":"Pansement américain", "quantity":10, "tags":[]},
+                    { "key": "v1_planDur_immo", "name":"Plan Dur + Immobilisateur Speedblocks", "quantity":1, "tags":[]},
+                    { "key": "v1_pompeDep", "name":"Pompe à Dépression", "quantity":1, "tags":[]},
+                    { "key": "v1_portoir", "name":"Portoir Souple", "quantity":1, "tags":[]},
+                    { "key": "v1_sacDASRI_15", "name":"Sacs DASRI jaune 15 litres (rouleau)", "quantity":1, "tags":[]},
+                    { "key": "v1_sangleAraignee", "name":"Sangle arraignée", "quantity":1, "tags":[]},
+                    { "key": "v1_sparadrap", "name":"Sparadrap", "quantity":2, "tags":[]},
+                    { "key": "v1_sprayDesinf", "name":"Spray désinfectant (Surfasafe 750 ml)", "quantity":1, "tags":["exp_date"]},
+                    { "key": "v1_valMembreSection", "name":"Valise Membres Séctionnés (1sac iso, 4 poches de froid)", "quantity":1, "tags":[]},
+                    { "key": "v1_vomix", "name":"Vomix", "quantity":2, "tags":[]}                    
+                ],
+                "children":[]
+            },
+            {
+                "id":"invVSAVCab",
+                "location" : {
+                    "name":"Cabine"
+                },
+                "supplies": [
+                    {
+                        "key":  "v1_ae2",
+                        "name":"An element",
+                        "quantity":10,
+                        "tags":[]
+                    }
+                ],
+                "children":[]
+            }
+        ]
+    },
+    {
+        "id":"invMed1",
+        "documentDate" : "2021-09-24",
+        "location" : {
+            "type":"medipack",
+            "name":"Médipack"
+        },
+        "supplies": [
+            { "key": "m1_bandeCrep_05", "name":"Bande de crêpe de 5 cm Velpeau", "quantity":1, "tags":[]},
+            { "key": "m1_bandeCrep_10", "name":"Bande de crêpe de 10 cm Velpeau", "quantity":1, "tags":[]},
+            { "key": "m1_bandeCrep_20", "name":"Bande de crêpe de 20 cm Velpeau", "quantity":1, "tags":[]},
+            { "key": "m1_btDASRI", "name":"Boîte à aiguilles VSAV jetable", "quantity":1, "tags":[]},
+            { "key": "m1_btlO2_05", "name":"Bouteille O2 5 Litres", "quantity":1, "tags":["level"]},
+            { "key": "m1_canuleGuedel_1", "name":"Canule de Guedel n° 1", "quantity":1, "tags":[]},
+            { "key": "m1_canuleGuedel_2", "name":"Canule de Guedel n° 2", "quantity":1, "tags":[]},
+            { "key": "m1_canuleGuedel_3", "name":"Canule de Guedel n° 3", "quantity":1, "tags":[]},
+            { "key": "m1_canuleGuedel_4", "name":"Canule de Guedel n° 4", "quantity":1, "tags":[]},
+            { "key": "m1_ciseauxJesco", "name":"Ciseaux coupe-vêtement Jesco", "quantity":1, "tags":[]},
+            { "key": "m1_collierCerv_A", "name":"Collier cervical adulte (si 1 seul dans la cellule du VSAV)", "quantity":1, "tags":[]},
+            { "key": "m1_compresses", "name":"Compresses stériles (paquet de 5)", "quantity":5, "tags":[]},
+            { "key": "m1_CHU", "name":"Coussin hémostatique d'Urgence CHUT", "quantity":1, "tags":[]},
+            { "key": "m1_couvMetalline", "name":"Couverture de survie métalline", "quantity":1, "tags":[]},
+            { "key": "m1_filetTub", "name":"Filet tubulaire (tête, cuisse)", "quantity":1, "tags":[]},
+            { "key": "m1_gantsUU", "name":"Paires de gants à usage unique", "quantity":4, "tags":[]},
+            { "key": "m1_masqueFIO2_A", "name":"Masque O2, haute concentration Adulte", "quantity":2, "tags":[]},
+            { "key": "m1_masqueFIO2_E", "name":"Masque O2, haute concentration Enfant", "quantity":2, "tags":[]},
+            { "key": "m1_dakin_60", "name":"Dakin 60 ml", "quantity":2, "tags":["exp_date"]},
+            { "key": "m1_detectCO", "name":"Détecteur CO - dotation par le GTL", "quantity":1, "tags":["battery"]},
+            { "key": "m1_BAVU_A", "name":"Insufflateur adulte + masques T4 et T5 + filtre (USAGE UNIQUE)", "quantity":1, "tags":[]},
+            { "key": "m1_BAVU_E", "name":"Insufflateur enfant + masques T1 et T2 (USAGE UNIQUE)", "quantity":1, "tags":[]},
+            { "key": "m1_kitGly", "name":"Lecteur de Glycémie + 5 bandelettes + 5 lancettes", "quantity":1, "tags":["battery", "exp_date"]},
+            { "key": "m1_NaCl_10", "name":"NACL 0,9 % 10 ml (serum physiologique)", "quantity":5, "tags":["exp_date"]},
+            { "key": "m1_NaCl_45", "name":"NACL 0,9 % 45 ml (serum physiologique)", "quantity":5, "tags":["exp_date"]},
+            { "key": "m1_oxyPouls", "name":"Oxymètre de Pouls", "quantity":1, "tags":["battery"]},
+            { "key": "m1_pansAmericain", "name":"Pansement Américain", "quantity":5, "tags":[]},
+            { "key": "m1_reglEVA", "name":"Réglette EVA Adulte", "quantity":1, "tags":[]},
+            { "key": "m1_gelHydroAlco", "name":"Gel hydroalcoolique", "quantity":1, "tags":["exp_date"]},
+            { "key": "m1_vomix", "name":"Sac Vomix", "quantity":1, "tags":[]},
+            { "key": "m1_sparadrap", "name":"Sparadrap", "quantity":1, "tags":[]},
+            { "key": "m1_stetho", "name":"Stéthoscope", "quantity":1, "tags":[]},
+            { "key": "m1_styloLamp", "name":"Stylo Lampe", "quantity":1, "tags":["battery"]},
+            { "key": "m1_tensio_A", "name":"Tensiomètre adulte", "quantity":1, "tags":[]},
+            { "key": "m1_tensio_E", "name":"Tensiomètre enfant ou brassard enfant", "quantity":1, "tags":[]},
+            { "key": "m1_tension_bras_XL", "name":"Brassard tensiomètre adulte large", "quantity":1, "tags":[]},
+            { "key": "m1_kitThermo", "name":"Thermomètre + protections \"Tempaset\"", "quantity":1, "tags":["battery"]}
+        ],
+        "children":[]
+    }
+]
