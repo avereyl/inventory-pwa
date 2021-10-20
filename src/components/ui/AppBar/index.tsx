@@ -25,7 +25,7 @@ const AppBar = () => {
   };
 
   const [menuOpen, setMenuOpen] = useState(false);
-  const [selectedRoute, setSelectedRoute] = useState(window.location.pathname);
+  const [selectedRoute, setSelectedRoute] = useState(history.location.pathname);
 
   const handleMenuOpen = () => {
     setMenuOpen(true);

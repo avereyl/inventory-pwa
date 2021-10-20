@@ -23,10 +23,10 @@ export type LocationCardProps = {
   handleClick: () => void;
 };
 
-const defaultMediaPath = "/assets/VSAV.webp";
+const defaultMediaPath = "./assets/VSAV.webp";
 const mediaPathMap: Map<LocationType, string> = new Map([
-  [LocationType.VSAV, "/assets/VSAV.webp"],
-  [LocationType.MEDIPACK, "/assets/medipack.webp"],
+  [LocationType.VSAV, "./assets/VSAV.webp"],
+  [LocationType.MEDIPACK, "./assets/medipack.webp"],
 ]);
 
 const LocationCard = (props: LocationCardProps) => {

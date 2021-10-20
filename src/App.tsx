@@ -19,7 +19,7 @@ function App() {
         <CssBaseline />
         <ErrorBoundary>
           <ProgressStore>
-            <Router>
+            <Router basename="/verif">
               <Switch>
                 <Route path="/help">
                   <HelpView />
