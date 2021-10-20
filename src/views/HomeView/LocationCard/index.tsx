@@ -45,9 +45,9 @@ const LocationCard = (props: LocationCardProps) => {
     (location.type && mediaPathMap.get(location.type)) ||
     defaultMediaPath;
   return (
-    <Card sx={{ margin: "1rem", maxWidth: "500px" }}>
+    <Card sx={{ margin: "1rem", maxWidth: "600px", alignSelf: "center" }}>
       <CardActionArea onClick={handleClick}>
-        <CardMedia component="img" height="185" image={media} alt={title} />
+        <CardMedia component="img" height="200" image={media} alt={title} />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
             {title}
@@ -58,10 +58,15 @@ const LocationCard = (props: LocationCardProps) => {
             </Typography>
           )}
           {progress.status === ProgressStatus.IN_PROGRESS && (
-            <LinearProgress
-              variant="determinate"
-              value={getProgressValue(progress)}
-            />
+            <>
+              <Typography variant="body2" color="text.secondary">
+                {t("screens.home.labels.checking")}
+              </Typography>
+              <LinearProgress
+                variant="determinate"
+                value={getProgressValue(progress)}
+              />
+            </>
           )}
           {latestSuccessDate && (
             <>

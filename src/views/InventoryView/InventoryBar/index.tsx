@@ -1,22 +1,49 @@
 import { Add, ArrowBack, Delete, RotateLeft } from "@mui/icons-material";
-import { AppBar, IconButton, Toolbar } from "@mui/material";
-import { Box } from "@mui/system";
+import { AppBar, Fab, IconButton, Toolbar, Typography } from "@mui/material";
+import { Box, styled } from "@mui/system";
 import { useTranslation } from "react-i18next";
 import { useHistory } from "react-router";
 
 export type InventoryBarProps = {
   inProgress: boolean;
-  newInventory: () => void;
-  resetInventory: () => void;
-  deleteInventory: () => void;
+  nbOfLinesChecked: number;
+  nbOfLinesToCheck: number;
+  onNewProgress: () => void;
+  onResetProgress: () => void;
+  onDeleteProgress: () => void;
 };
 
 const InventoryBar = (props: InventoryBarProps) => {
-  const { inProgress, newInventory, resetInventory, deleteInventory } = props;
+  const {
+    inProgress,
+    nbOfLinesChecked,
+    nbOfLinesToCheck,
+    onNewProgress,
+    onResetProgress,
+    onDeleteProgress,
+  } = props;
   const history = useHistory();
   const { t } = useTranslation();
+
+  const StyledFab = styled(Fab)({
+    position: "absolute",
+    zIndex: 1,
+    top: -30,
+    left: 0,
+    right: 0,
+    margin: "0 auto",
+  });
+
   return (
-    <AppBar position="sticky" color="primary" sx={{ top: "auto", bottom: 0 }}>
+    <AppBar
+      position="sticky"
+      sx={{
+        top: "auto",
+        bottom: 0,
+        backgroundColor: "background.default",
+        color: "text.primary",
+      }}
+    >
       <Toolbar>
         <IconButton
           onClick={() => history.push("/")}
@@ -25,27 +52,30 @@ const InventoryBar = (props: InventoryBarProps) => {
         >
           <ArrowBack />
         </IconButton>
-        <Box sx={{ flexGrow: 1 }} />
         {!inProgress && (
-          <IconButton
-            onClick={newInventory}
-            color="inherit"
+          <StyledFab
+            onClick={onNewProgress}
+            color="primary"
             aria-label={t("actions.inventory.new")}
           >
             <Add />
-          </IconButton>
+          </StyledFab>
         )}
+        <Box sx={{ flexGrow: 1 }} />
         {inProgress && (
           <>
+            <Typography>
+              {`${nbOfLinesChecked} / ${nbOfLinesToCheck}`}
+            </Typography>
             <IconButton
-              onClick={resetInventory}
+              onClick={onResetProgress}
               color="inherit"
               aria-label={t("actions.inventory.reset")}
             >
               <RotateLeft />
             </IconButton>
             <IconButton
-              onClick={deleteInventory}
+              onClick={onDeleteProgress}
               color="inherit"
               aria-label={t("actions.inventory.delete")}
             >
@@ -56,6 +86,11 @@ const InventoryBar = (props: InventoryBarProps) => {
       </Toolbar>
     </AppBar>
   );
+};
+
+InventoryBar.defaultProps = {
+  nbOfLinesChecked: 0,
+  nbOfLinesToCheck: 0,
 };
 
 export default InventoryBar;

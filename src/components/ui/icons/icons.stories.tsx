@@ -1,5 +1,6 @@
 import { SvgIcon } from "@mui/material";
 import { ComponentMeta } from "@storybook/react";
+import Home from "./Home";
 import Medipack from "./Medipack";
 import MedipackFilled from "./MedipackFilled";
 import MedipackOutlined from "./MedipackOutlined";
@@ -17,6 +18,7 @@ export default {
   },
 } as ComponentMeta<typeof SvgIcon>;
 
+export const Home_ = () => <Home />;
 export const VSAV_ = () => <VSAV />;
 export const VSAV_Outlined = () => <VSAVOutlined />;
 export const VSAV_Filled = () => <VSAVFilled />;

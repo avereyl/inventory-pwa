@@ -1,4 +1,4 @@
-import { HelpOutline, Home, MoreHoriz, MoreVert } from "@mui/icons-material";
+import { HelpOutline, MoreHoriz, MoreVert } from "@mui/icons-material";
 import { AppBar as MuiAppBar, IconButton, Toolbar } from "@mui/material";
 import { Box } from "@mui/system";
 import { ReactNode, useState } from "react";
@@ -7,9 +7,10 @@ import { useHistory } from "react-router";
 import inventories from "../../../data/inventories.json";
 import Inventory from "../../../types/Inventory";
 import { LocationType } from "../../../types/Location";
+import Home from "../icons/Home";
 import MedipackFilled from "../icons/MedipackFilled";
 import VSAVFilled from "../icons/VSAVFilled";
-import MainMenu from "../MainMenu";
+import HelpMenu from "./HelpMenu";
 
 const iconMap: Map<LocationType, ReactNode> = new Map([
   [LocationType.MEDIPACK, <MedipackFilled />],
@@ -23,14 +24,19 @@ const AppBar = () => {
     history.push(path);
   };
 
-  const [menuAnchorEl, setMenuAnchorEl] = useState<null | HTMLElement>(null);
-  const mainMenuOpen = Boolean(menuAnchorEl);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [selectedRoute, setSelectedRoute] = useState(window.location.pathname);
 
-  const handleMenuOpen = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setMenuAnchorEl(event.currentTarget);
+  const handleMenuOpen = () => {
+    setMenuOpen(true);
   };
   const handleMenuClose = () => {
-    setMenuAnchorEl(null);
+    setMenuOpen(false);
+  };
+  const handleNavigation = (route: string) => {
+    setSelectedRoute(route);
+    history.push(route);
+    menuOpen && handleMenuClose();
   };
 
   const buildIconButton = (inventory: Inventory) => {
@@ -57,12 +63,16 @@ const AppBar = () => {
     <>
       <MuiAppBar
         position="sticky"
-        color="primary"
-        sx={{ top: "auto", bottom: 0 }}
+        sx={{
+          top: "auto",
+          bottom: 0,
+          backgroundColor: "background.default",
+          color: "text.primary",
+        }}
       >
         <Toolbar>
           <IconButton
-            color="inherit"
+            color={selectedRoute === "/" ? "primary" : "inherit"}
             onClick={() => navigateTo("/")}
             aria-label={t("actions.navigation.gotoHome")}
           >
@@ -73,21 +83,26 @@ const AppBar = () => {
 
           <Box sx={{ flexGrow: 1 }} />
           <IconButton
-            color="inherit"
+            color={
+              ["/help", "/about", "/settings"].find((s) => s === selectedRoute)
+                ? "primary"
+                : "inherit"
+            }
             aria-label="open menu"
             aria-controls="basic-menu"
             aria-haspopup="true"
-            aria-expanded={mainMenuOpen}
+            aria-expanded={menuOpen}
             onClick={handleMenuOpen}
           >
-            {mainMenuOpen ? <MoreVert /> : <MoreHoriz />}
+            {menuOpen ? <MoreVert /> : <MoreHoriz />}
           </IconButton>
         </Toolbar>
       </MuiAppBar>
-      <MainMenu
-        anchorEl={menuAnchorEl}
-        handleClose={handleMenuClose}
-        open={mainMenuOpen}
+      <HelpMenu
+        handleDrawerClose={handleMenuClose}
+        open={menuOpen}
+        selectedPath={selectedRoute}
+        handleNavigation={handleNavigation}
       />
     </>
   );

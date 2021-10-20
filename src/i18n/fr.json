@@ -2,7 +2,12 @@
     "translation": {
         "commons":{
             "labels": {
-                "ok" : "OK"
+                "ok" : "OK",
+                "erase": "Effacer"
+            },
+            "themeMode": {
+                "light": "Thème clair",
+                "dark": "Thème foncé"
             }
         },
         "menu" : {
@@ -24,14 +29,16 @@
                 "delete":"Supprimer la vérif"
             },
             "settings" : {
-
+                "hideCheckedLines" : "Masquer les lignes cochées",
+                "deleteData" : "Effacer les données stockées"
             }
         },
         "screens" : {
             "home" : {
                 "labels" : {
                     "inventoryVersion" : "Version du {{version}}",
-                    "checkedDate" : "Vérifié le {{date}}"
+                    "checkedDate" : "Dernière vérif' le {{date}}",
+                    "checking" : "Vérif' en cours"
                 }
             },
             "inventory" : {
@@ -40,6 +47,28 @@
                 },
                 "messages" : {
                     "success" : "L'inventaire du {{locationName}} est complet. Bonne semaine de garde !"
+                }
+            },
+            "settings" : {
+                "title" : "Réglages",
+                "labels":{
+                    "themeMode" : "Thème",
+                    "display":"Affichage",
+                    "reset":"Reset"
+                }
+            },
+            "help" : {
+                "title" : "Aide",
+                "labels": {
+                }
+            },
+            "about" : {
+                "title" : "A propos",
+                "labels": {
+                    "app": "Application",
+                "version": "Version",
+                "code": "Code",
+                "datasource": "Source des données"
                 }
             }
 

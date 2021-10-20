@@ -16,7 +16,13 @@ const LayoutDecorator = (props: LayoutDecoratorProps) => {
       flexDirection="column"
       justifyContent="start"
     >
-      <Box display="flex" flexGrow={1} justifyContent="center" width="100%">
+      <Box
+        display="flex"
+        flexGrow={1}
+        justifyContent="center"
+        width="100%"
+        bgcolor="background.paper"
+      >
         {children}
       </Box>
       {customAppBar ? customAppBar : <AppBar />}

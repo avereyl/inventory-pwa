@@ -1,7 +1,7 @@
 import { List, ListSubheader, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { useCallback } from "react";
-import { useParams } from "react-router";
+import { useHistory, useParams } from "react-router";
 import { useGlobalContext } from "../../context/global/GlobalStore";
 import { GlobalActionType } from "../../context/global/types";
 import { useProgressContext } from "../../context/progress/ProgressContext";
@@ -24,9 +24,10 @@ const buildVariant = (level: number): LocationVariant => {
 };
 
 const InventoryView = () => {
+  const history = useHistory();
   const { locationType } = useParams<LocationParams>();
   const { state, dispatch } = useProgressContext();
-  const { dispatch: globalDispatch } = useGlobalContext();
+  const { dispatch: globalDispatch, state: globalState } = useGlobalContext();
 
   const { findInventoryByLocationType, countSuppliesByLocationType } =
     useInventories();
@@ -37,7 +38,6 @@ const InventoryView = () => {
   const progress: Progress | undefined = state.progresses.find(
     (p) => p.locationType === locationType
   );
-  const location = inventory?.location;
 
   const handleCloseSuccessSnack = useCallback(() => {
     //clear progress
@@ -50,7 +50,8 @@ const InventoryView = () => {
       type: GlobalActionType.SAVE_PROGRESS_SUCCESS,
       payload: locationType,
     });
-    //+ back to home ?
+    // back to home
+    history.push("/");
   }, []);
 
   const handleToggle = (value: string) => () => {
@@ -69,7 +70,7 @@ const InventoryView = () => {
     const key = `${keyPrefix}_inv_${actualLevel}`;
     return (
       <List key={key} dense={true}>
-        <ListSubheader>
+        <ListSubheader sx={{ height: (theme) => theme.spacing(7) }}>
           <Typography
             variant={buildVariant(actualLevel + 2)}
             component={buildVariant(actualLevel + 1)}
@@ -88,6 +89,7 @@ const InventoryView = () => {
               checked={Boolean(
                 progress && progress.linesChecked.indexOf(supply.key) !== -1
               )}
+              lineBehavior={globalState.userSettings.checkedLineBehavior}
               status={progress?.status || ProgressStatus.UNKNOWN}
               onClick={handleToggle(supply.key)}
             />
@@ -103,7 +105,7 @@ const InventoryView = () => {
   const inventoryAppBar = (
     <InventoryBar
       inProgress={progress?.status === ProgressStatus.IN_PROGRESS}
-      newInventory={() => {
+      onNewProgress={() => {
         dispatch({
           type: ProgressActionType.PROGRESS_START,
           payload: {
@@ -112,18 +114,20 @@ const InventoryView = () => {
           },
         });
       }}
-      resetInventory={() => {
+      onResetProgress={() => {
         dispatch({
           type: ProgressActionType.PROGRESS_RESET,
           payload: locationType,
         });
       }}
-      deleteInventory={() => {
+      onDeleteProgress={() => {
         dispatch({
           type: ProgressActionType.PROGRESS_DELETE,
           payload: locationType,
         });
       }}
+      nbOfLinesChecked={progress?.linesChecked.length}
+      nbOfLinesToCheck={progress?.nbOfLinesToCheck}
     />
   );
 
@@ -134,24 +138,17 @@ const InventoryView = () => {
           display: "flex",
           flexDirection: "column",
           alignItems: "stretch",
-          maxWidth: "500px",
+          maxWidth: "700px",
           width: 1,
           margin: "1rem 1rem 0 1rem",
         }}
       >
         {inventory && buildInventory(inventory, "")}
       </Box>
-      {/* {progress && (
-        <LinearProgress
-          variant="determinate"
-          color="secondary"
-          value={getCheckingProgress(progress)}
-        />
-      )} */}
       <InventorySuccess
         open={Boolean(progress && progress?.status === ProgressStatus.COMPLETE)}
         onClose={handleCloseSuccessSnack}
-        location={location}
+        location={inventory?.location}
       />
     </LayoutDecorator>
   );

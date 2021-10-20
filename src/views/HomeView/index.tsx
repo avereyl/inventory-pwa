@@ -6,6 +6,7 @@ import { useProgressContext } from "../../context/progress/ProgressContext";
 import LayoutDecorator from "../../decorator/LayoutDecorator";
 import useInventories from "../../hooks/useInventories";
 import { LocationType } from "../../types/Location";
+import Progress from "../../types/Progress";
 import LocationCard from "./LocationCard";
 
 const HomeView = () => {
@@ -26,29 +27,35 @@ const HomeView = () => {
           flexDirection: "column",
           alignItems: "stretch",
           maxWidth: "700px",
-          justifyContent: "space-evenly",
+          width: 1,
+          margin: "1rem 1rem 0 1rem",
         }}
       >
-        {findInventories().map((inv) => (
-          <LocationCard
-            key={`card_${inv.location.type}`}
-            location={inv.location}
-            title={inv.location.name}
-            version={
-              inv.documentDate &&
-              format(Date.parse(inv.documentDate), "dd/MM/yyyy")
-            }
-            handleClick={() => displayCard(inv.location.type)}
-            progress={state.progresses.find(
-              (p) => p.locationType === inv.location.type
-            )}
-            latestSuccessDate={
-              globalState.successes.find(
-                (s) => s.locationType === inv.location.type
-              )?.valueDate
-            }
-          />
-        ))}
+        {findInventories().map((inv) => {
+          const progress: Progress | undefined = state.progresses.find(
+            (p) => p.locationType === inv.location.type
+          );
+          return (
+            <LocationCard
+              key={`card_${inv.location.type}`}
+              location={inv.location}
+              title={inv.location.name}
+              version={
+                inv.documentDate &&
+                format(Date.parse(inv.documentDate), "dd/MM/yyyy")
+              }
+              handleClick={() => displayCard(inv.location.type)}
+              progress={progress}
+              latestSuccessDate={
+                progress
+                  ? undefined
+                  : globalState.successes.find(
+                      (s) => s.locationType === inv.location.type
+                    )?.valueDate
+              }
+            />
+          );
+        })}
       </Box>
     </LayoutDecorator>
   );

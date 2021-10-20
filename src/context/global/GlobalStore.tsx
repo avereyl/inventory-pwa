@@ -73,10 +73,15 @@ export const GlobalStore = ({
 
 export const globalContext = createContext({} as GlobalContextType);
 
+const getSystemThemeMode = () => {
+  const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+  return prefersDarkScheme.matches ? ThemeMode.DARK : ThemeMode.LIGHT;
+};
+
 export const initialState: GlobalState = {
   persistenceType: PersistenceType.LOCAL_STORAGE,
   userSettings: {
-    theme: ThemeMode.LIGHT,
+    theme: getSystemThemeMode(),
     checkedLineBehavior: CheckedLineBehavior.CROSS_OUT,
   },
   successes: [],

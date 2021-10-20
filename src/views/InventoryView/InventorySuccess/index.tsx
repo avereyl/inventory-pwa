@@ -41,7 +41,7 @@ const InventorySuccess = (props: InventorySuccessProps) => {
         })}
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleClose} autoFocus>
+        <Button onClick={handleClose} autoFocus variant="contained">
           {t("commons.labels.ok")}
         </Button>
       </DialogActions>

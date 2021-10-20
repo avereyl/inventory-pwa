@@ -95,11 +95,12 @@ export const newStateWithSavedProgress = (
   locationType: LocationType
 ): GlobalState => {
   const valueDate : Date = new Date();
-  //TODO add or update
   const success : ProgressSuccess =  {locationType, valueDate};
   return {
     ...state,
-    successes: [...state.successes, success],
+    successes: [...state.successes.filter(
+      (s) => s.locationType !== locationType
+    ), success],
   };
 };
 
