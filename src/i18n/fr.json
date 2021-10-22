@@ -3,7 +3,9 @@
         "commons":{
             "labels": {
                 "ok" : "OK",
-                "erase": "Effacer"
+                "erase": "Effacer",
+                "delete":"Supprimer",
+                "cancel":"Annuler"
             },
             "themeMode": {
                 "light": "Thème clair",
@@ -46,7 +48,9 @@
                     "inventorySuccess" : "Bien joué !"
                 },
                 "messages" : {
-                    "success" : "L'inventaire du {{locationName}} est complet. Bonne semaine de garde !"
+                    "success" : "L'inventaire du {{locationName}} est complet. Bonne semaine de garde !",
+                    "deleteConfirmationTitle":"Supprimer l'inventaire ?",
+                    "deleteConfirmationDescription":"Etes-vous sûr de vouloir supprimer l'inventaire ?"
                 }
             },
             "settings" : {
@@ -55,6 +59,10 @@
                     "themeMode" : "Thème",
                     "display":"Affichage",
                     "reset":"Reset"
+                },
+                "messages" :{
+                    "resetConfirmationTitle": "Effacer vos données ?",
+                    "resetConfirmationDescription": "Etes-vous sûr de vouloir effacer vos données ? Les inventaires effectués et les réglages seront remis à zéro."
                 }
             },
             "help" : {

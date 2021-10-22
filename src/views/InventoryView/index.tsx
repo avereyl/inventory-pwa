@@ -1,7 +1,9 @@
 import { List, ListSubheader, Typography } from "@mui/material";
 import { Box } from "@mui/system";
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useHistory, useParams } from "react-router";
+import ConfirmationDialog from "../../components/ui/ConfirmationDialog";
 import { useGlobalContext } from "../../context/global/GlobalStore";
 import { GlobalActionType } from "../../context/global/types";
 import { useProgressContext } from "../../context/progress/ProgressContext";
@@ -24,10 +26,28 @@ const buildVariant = (level: number): LocationVariant => {
 };
 
 const InventoryView = () => {
+  const { t } = useTranslation();
   const history = useHistory();
   const { locationType } = useParams<LocationParams>();
   const { state, dispatch } = useProgressContext();
   const { dispatch: globalDispatch, state: globalState } = useGlobalContext();
+  const [isDeleteConfirmationDialogOpen, setIsDeleteConfirmationDialogOpen] =
+    useState<boolean>(false);
+
+  const handleOpenDeleteConfirmation = () => {
+    setIsDeleteConfirmationDialogOpen(true);
+  };
+  const handleCloseDeleteConfirmation = () => {
+    setIsDeleteConfirmationDialogOpen(false);
+  };
+
+  const handleDeleteProgress = () => {
+    dispatch({
+      type: ProgressActionType.PROGRESS_DELETE,
+      payload: locationType,
+    });
+    handleCloseDeleteConfirmation();
+  };
 
   const { findInventoryByLocationType, countSuppliesByLocationType } =
     useInventories();
@@ -120,12 +140,7 @@ const InventoryView = () => {
           payload: locationType,
         });
       }}
-      onDeleteProgress={() => {
-        dispatch({
-          type: ProgressActionType.PROGRESS_DELETE,
-          payload: locationType,
-        });
-      }}
+      onDeleteProgress={handleOpenDeleteConfirmation}
       nbOfLinesChecked={progress?.linesChecked.length}
       nbOfLinesToCheck={progress?.nbOfLinesToCheck}
     />
@@ -149,6 +164,18 @@ const InventoryView = () => {
         open={Boolean(progress && progress?.status === ProgressStatus.COMPLETE)}
         onClose={handleCloseSuccessSnack}
         location={inventory?.location}
+      />
+      <ConfirmationDialog
+        open={isDeleteConfirmationDialogOpen}
+        title={t("screens.inventory.messages.deleteConfirmationTitle")}
+        confirmation={t(
+          "screens.inventory.messages.deleteConfirmationDescription"
+        )}
+        onClose={handleCloseDeleteConfirmation}
+        onCancel={handleCloseDeleteConfirmation}
+        onOK={handleDeleteProgress}
+        labelOK={t("commons.labels.delete")}
+        labelCancel={t("commons.labels.cancel")}
       />
     </LayoutDecorator>
   );

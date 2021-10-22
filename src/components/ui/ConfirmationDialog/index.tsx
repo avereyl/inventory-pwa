@@ -39,7 +39,7 @@ const ConfirmationDialog = (props: ConfirmationDialogProps) => {
   const handleOK = () => onOK();
 
   return (
-    <Dialog onClose={handleClose} open={open} sx={{ maxWidth: 700 }}>
+    <Dialog onClose={handleClose} open={open}>
       <DialogTitle>
         {icon}
         {title}

@@ -12,7 +12,9 @@ import {
   Typography,
 } from "@mui/material";
 import { Box } from "@mui/system";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import ConfirmationDialog from "../../components/ui/ConfirmationDialog";
 import { useGlobalContext } from "../../context/global/GlobalStore";
 import {
   CheckedLineBehavior,
@@ -25,6 +27,15 @@ import { ThemeMode } from "../../types/Themes";
 const SettingsView = () => {
   const { t } = useTranslation();
   const { state, dispatch } = useGlobalContext();
+  const [isResetDialogOpen, setIsResetDialogOpen] = useState<boolean>(false);
+
+  const handleOpenResetConfirmation = () => {
+    setIsResetDialogOpen(true);
+  };
+  const handleCloseResetConfirmation = () => {
+    setIsResetDialogOpen(false);
+  };
+
   const handleThemeModeSwitch = () => {
     dispatch({ type: GlobalActionType.SETTINGS_TOGGLE_THEME_MODE });
   };
@@ -33,6 +44,7 @@ const SettingsView = () => {
   };
   const handleReset = () => {
     dispatch({ type: GlobalActionType.RESET_STATE });
+    handleCloseResetConfirmation();
   };
 
   return (
@@ -120,7 +132,11 @@ const SettingsView = () => {
 
               <>
                 <Typography>{t("actions.settings.deleteData")}</Typography>
-                <Button variant="contained" color="error" onClick={handleReset}>
+                <Button
+                  variant="contained"
+                  color="error"
+                  onClick={handleOpenResetConfirmation}
+                >
                   {t("commons.labels.erase")}
                 </Button>
               </>
@@ -128,6 +144,18 @@ const SettingsView = () => {
           </ListItem>
         </List>
       </Box>
+      <ConfirmationDialog
+        open={isResetDialogOpen}
+        title={t("screens.settings.messages.resetConfirmationTitle")}
+        confirmation={t(
+          "screens.settings.messages.resetConfirmationDescription"
+        )}
+        onClose={handleCloseResetConfirmation}
+        onCancel={handleCloseResetConfirmation}
+        onOK={handleReset}
+        labelOK={t("commons.labels.delete")}
+        labelCancel={t("commons.labels.cancel")}
+      />
     </LayoutDecorator>
   );
 };
