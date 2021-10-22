@@ -26,11 +26,20 @@ const buildTagIcon = (tag: SupplyTag, key: string, idx: number) => {
   const sx = { margin: (theme: Theme) => theme.spacing(0, 0.5) };
   switch (tag) {
     case SupplyTag.BATTERY:
-      return <BatteryCharging60 key={key + idx} fontSize="small" sx={sx} />;
+      return (
+        <BatteryCharging60
+          key={key + idx}
+          fontSize="small"
+          sx={sx}
+          color="primary"
+        />
+      );
     case SupplyTag.EXP_DATE:
-      return <Event key={key + idx} fontSize="small" sx={sx} />;
+      return <Event key={key + idx} fontSize="small" sx={sx} color="primary" />;
     case SupplyTag.LEVEL:
-      return <BarChart key={key + idx} fontSize="small" sx={sx} />;
+      return (
+        <BarChart key={key + idx} fontSize="small" sx={sx} color="primary" />
+      );
   }
 };
 

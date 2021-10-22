@@ -45,7 +45,7 @@ const LocationCard = (props: LocationCardProps) => {
     (location.type && mediaPathMap.get(location.type)) ||
     defaultMediaPath;
   return (
-    <Card sx={{ margin: "1rem", maxWidth: "600px", alignSelf: "center" }}>
+    <Card sx={{ margin: "1rem", maxWidth: "700px", alignSelf: "center" }}>
       <CardActionArea onClick={handleClick}>
         <CardMedia component="img" height="200" image={media} alt={title} />
         <CardContent>

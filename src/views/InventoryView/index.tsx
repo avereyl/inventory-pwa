@@ -89,7 +89,8 @@ const InventoryView = () => {
     const actualLevel = level || 1;
     const key = `${keyPrefix}_inv_${actualLevel}`;
     return (
-      <List key={key} dense={true}>
+      // padding to 0 ??
+      <List key={key} dense={true} sx={{ paddingTop: 0, paddingBottom: 0 }}>
         <ListSubheader sx={{ height: (theme) => theme.spacing(7) }}>
           <Typography
             variant={buildVariant(actualLevel + 2)}

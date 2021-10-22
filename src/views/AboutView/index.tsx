@@ -2,6 +2,7 @@ import { GitHub, PhoneAndroid } from "@mui/icons-material";
 import {
   Avatar,
   Divider,
+  Link,
   List,
   ListItem,
   ListItemAvatar,
@@ -68,19 +69,27 @@ const AboutView = () => {
             </ListItemAvatar>
             <ListItemText
               primary={t("screens.about.labels.code")}
-              secondary=""
+              secondary={
+                <Link href="https://github.com/avereyl/inventory-pwa">
+                  https://github.com/avereyl/inventory-pwa
+                </Link>
+              }
             />
           </ListItem>
           <Divider variant="inset" component="li" />
           <ListItem>
             <ListItemAvatar>
-              <Avatar>
+              <Avatar alt="SDIS 85" src="./assets/sdis85.webp">
                 <GitHub />
               </Avatar>
             </ListItemAvatar>
             <ListItemText
               primary={t("screens.about.labels.datasource")}
-              secondary=""
+              secondary={
+                <Link href="https://agora.sdis-vendee.fr/">
+                  https://agora.sdis-vendee.fr/
+                </Link>
+              }
             />
           </ListItem>
         </List>

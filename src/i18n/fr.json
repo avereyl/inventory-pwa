@@ -50,7 +50,7 @@
                 "messages" : {
                     "success" : "L'inventaire du {{locationName}} est complet. Bonne semaine de garde !",
                     "deleteConfirmationTitle":"Supprimer l'inventaire ?",
-                    "deleteConfirmationDescription":"Etes-vous sûr de vouloir supprimer l'inventaire ?"
+                    "deleteConfirmationDescription":"Etes-vous sûr de vouloir supprimer l'inventaire en cours ?"
                 }
             },
             "settings" : {
@@ -62,7 +62,7 @@
                 },
                 "messages" :{
                     "resetConfirmationTitle": "Effacer vos données ?",
-                    "resetConfirmationDescription": "Etes-vous sûr de vouloir effacer vos données ? Les inventaires effectués et les réglages seront remis à zéro."
+                    "resetConfirmationDescription": "Etes-vous sûr de vouloir effacer vos données ? Les inventaires effectués, en cours et les réglages seront remis à zéro."
                 }
             },
             "help" : {

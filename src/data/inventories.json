@@ -16,9 +16,6 @@
                 },
                 "supplies": [ 
                     { "key": "v1_aspiMuco", "name":"Aspirateur de Mucosités", "quantity":1, "tags":["battery"]},
-                    { "key": "v1_attDep_B", "name":"Attelle à Dépression Bras Adulte / Jambe Enfant", "quantity":1, "tags":[]},
-                    { "key": "v1_attDep_J", "name":"Attelle à Dépression Jambe Adulte", "quantity":1, "tags":[]},
-                    { "key": "v1_attDep_P", "name":"Attelle à Dépression Poignet", "quantity":1, "tags":[]},
                     { "key": "v1_attKed", "name":"Attelle de Ked (3 coussins + sangles front et menton)", "quantity":1, "tags":[]},
                     { "key": "v1_bandeCrep_05", "name":"Bande de crêpe de 5 cm VELPEAU", "quantity":2, "tags":[]},
                     { "key": "v1_bandeCrep_10", "name":"Bande de crêpe de 10 cm VELPEAU", "quantity":2, "tags":[]},
@@ -69,13 +66,10 @@
                     { "key": "v1_masqueFFP2", "name":"Masques FFP2", "quantity":10, "tags":[]},
                     { "key": "v1_masqueFIO2_A", "name":"Masque O<sub>2</sub> haute concentration Adulte", "quantity":2, "tags":[]},
                     { "key": "v1_masqueFIO2_E", "name":"Masque O<sub>2</sub> haute concentration Enfant", "quantity":2, "tags":[]},
-                    { "key": "v1_MID_A", "name":"Matelas Coquille Adulte", "quantity":1, "tags":[]},
-                    { "key": "v1_MID_E", "name":"Matelas Coquille Enfant", "quantity":1, "tags":[]},
                     { "key": "v1_NaCl_45", "name":"NaCl 0,9 % 45 ml (sérum physiologique)", "quantity":5, "tags":["exp_date"]},
                     { "key": "v1_NaCl_10", "name":"NaCl 0,9 % 10 ml (sérum physiologique)", "quantity":10, "tags":["exp_date"]},
                     { "key": "v1_pansAmericain", "name":"Pansement américain", "quantity":10, "tags":[]},
                     { "key": "v1_planDur_immo", "name":"Plan Dur + Immobilisateur Speedblocks", "quantity":1, "tags":[]},
-                    { "key": "v1_pompeDep", "name":"Pompe à Dépression", "quantity":1, "tags":[]},
                     { "key": "v1_portoir", "name":"Portoir Souple", "quantity":1, "tags":[]},
                     { "key": "v1_sacDASRI_15", "name":"Sacs DASRI jaune 15 litres (rouleau)", "quantity":1, "tags":[]},
                     { "key": "v1_sangleAraignee", "name":"Sangle arraignée", "quantity":1, "tags":[]},
@@ -84,6 +78,54 @@
                     { "key": "v1_valMembreSection", "name":"Valise Membres Séctionnés (1 sac iso, 4 poches de froid)", "quantity":1, "tags":[]},
                     { "key": "v1_vomix", "name":"Vomix", "quantity":2, "tags":[]}                    
                 ],
+                "children":[
+                    {
+                        "id":"invVSAVCelTirBleu",
+                        "location" : {
+                            "name":"Tiroir bleu"
+                        },
+                        "supplies": [],
+                        "children":[]
+                    },
+                    {
+                        "id":"invVSAVCelTirVert",
+                        "location" : {
+                            "name":"Tiroir vert"
+                        },
+                        "supplies": [],
+                        "children":[]
+                    },
+                    {
+                        "id":"invVSAVCelTirRouge",
+                        "location" : {
+                            "name":"Tiroir rouge"
+                        },
+                        "supplies": [],
+                        "children":[]
+                    }
+                ]
+            },
+            {
+                "id":"invVSAVCofLatAv",
+                "location" : {
+                    "name":"Coffre latéral avant"
+                },
+                "supplies": [
+                    { "key": "v1_MID_A", "name":"Matelas Coquille Adulte", "quantity":1, "tags":[]},
+                    { "key": "v1_MID_E", "name":"Matelas Coquille Enfant", "quantity":1, "tags":[]},
+                    { "key": "v1_attDep_B", "name":"Attelle à Dépression Bras Adulte / Jambe Enfant", "quantity":1, "tags":[]},
+                    { "key": "v1_attDep_J", "name":"Attelle à Dépression Jambe Adulte", "quantity":1, "tags":[]},
+                    { "key": "v1_attDep_P", "name":"Attelle à Dépression Poignet", "quantity":1, "tags":[]},
+                    { "key": "v1_pompeDep", "name":"Pompe à Dépression", "quantity":1, "tags":[]}
+                ],
+                "children":[]
+            },
+            {
+                "id":"invVSAVCofLatAr",
+                "location" : {
+                    "name":"Coffre latéral arrière"
+                },
+                "supplies": [],
                 "children":[]
             },
             {
@@ -93,11 +135,12 @@
                 },
                 "supplies": [
                     {
-                        "key":  "v1_ae2",
-                        "name":"An element",
-                        "quantity":10,
+                        "key":  "v1_ca_btGantsUU_910",
+                        "name":"Boîte de gants usage unique taille 9/10",
+                        "quantity":1,
                         "tags":[]
-                    }
+                    },
+                    { "key": "v1_ca_gelHydroAlco", "name":"Gel Hydro-Alcoolique PM 100ml ou 300 ml", "quantity":1, "tags":["exp_date"]}
                 ],
                 "children":[]
             }
@@ -133,22 +176,36 @@
             { "key": "m1_detectCO", "name":"Détecteur CO - dotation par le GTL", "quantity":1, "tags":["battery"]},
             { "key": "m1_BAVU_A", "name":"Insufflateur adulte + masques T4 et T5 + filtre (USAGE UNIQUE)", "quantity":1, "tags":[]},
             { "key": "m1_BAVU_E", "name":"Insufflateur enfant + masques T1 et T2 (USAGE UNIQUE)", "quantity":1, "tags":[]},
-            { "key": "m1_kitGly", "name":"Lecteur de Glycémie + 5 bandelettes + 5 lancettes", "quantity":1, "tags":["battery", "exp_date"]},
+            
             { "key": "m1_NaCl_10", "name":"NaCl 0,9 % 10 ml (sérum physiologique)", "quantity":5, "tags":["exp_date"]},
             { "key": "m1_NaCl_45", "name":"NaCl 0,9 % 45 ml (sérum physiologique)", "quantity":5, "tags":["exp_date"]},
-            { "key": "m1_oxyPouls", "name":"Oxymètre de Pouls", "quantity":1, "tags":["battery"]},
+            
             { "key": "m1_pansAmericain", "name":"Pansement Américain", "quantity":5, "tags":[]},
-            { "key": "m1_reglEVA", "name":"Réglette EVA Adulte", "quantity":1, "tags":[]},
+           
             { "key": "m1_gelHydroAlco", "name":"Gel hydroalcoolique", "quantity":1, "tags":["exp_date"]},
             { "key": "m1_vomix", "name":"Sac Vomix", "quantity":1, "tags":[]},
-            { "key": "m1_sparadrap", "name":"Sparadrap", "quantity":1, "tags":[]},
-            { "key": "m1_stetho", "name":"Stéthoscope", "quantity":1, "tags":[]},
-            { "key": "m1_styloLamp", "name":"Stylo Lampe", "quantity":1, "tags":["battery"]},
-            { "key": "m1_tensio_A", "name":"Tensiomètre adulte", "quantity":1, "tags":[]},
-            { "key": "m1_tensio_E", "name":"Tensiomètre enfant ou brassard enfant", "quantity":1, "tags":[]},
-            { "key": "m1_tension_bras_XL", "name":"Brassard tensiomètre adulte large", "quantity":1, "tags":[]},
-            { "key": "m1_kitThermo", "name":"Thermomètre + protections \"Tempaset\"", "quantity":1, "tags":["battery"]}
+            { "key": "m1_sparadrap", "name":"Sparadrap", "quantity":1, "tags":[]}
+            
         ],
-        "children":[]
+        "children":[
+            {
+                "id":"invVSAVCelSacBilan",
+                "location" : {
+                    "name":"Sac bilan"
+                },
+                "supplies": [
+                    { "key": "m1_kitGly", "name":"Lecteur de Glycémie + 5 bandelettes + 5 lancettes", "quantity":1, "tags":["battery", "exp_date"]},
+                    { "key": "m1_oxyPouls", "name":"Oxymètre de Pouls", "quantity":1, "tags":["battery"]},
+                    { "key": "m1_reglEVA", "name":"Réglette EVA Adulte", "quantity":1, "tags":[]},
+                    { "key": "m1_stetho", "name":"Stéthoscope", "quantity":1, "tags":[]},
+                    { "key": "m1_styloLamp", "name":"Stylo Lampe", "quantity":1, "tags":["battery"]},
+                    { "key": "m1_tensio_A", "name":"Tensiomètre adulte", "quantity":1, "tags":[]},
+                    { "key": "m1_tensio_E", "name":"Tensiomètre enfant ou brassard enfant", "quantity":1, "tags":[]},
+                    { "key": "m1_tension_bras_XL", "name":"Brassard tensiomètre adulte large", "quantity":1, "tags":[]},
+                    { "key": "m1_kitThermo", "name":"Thermomètre + protections \"Tempaset\"", "quantity":1, "tags":["battery"]}
+                ],
+                "children":[]
+            }
+        ]
     }
 ]
