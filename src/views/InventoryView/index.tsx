@@ -1,4 +1,3 @@
-import { List, ListSubheader, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { useCallback, useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -13,17 +12,9 @@ import useInventories from "../../hooks/useInventories";
 import Inventory from "../../types/Inventory";
 import { LocationParams } from "../../types/Location";
 import Progress, { ProgressStatus } from "../../types/Progress";
+import InventoryComponent from "./Inventory";
 import InventoryBar from "./InventoryBar";
-import InventoryLine from "./InventoryLine";
 import InventorySuccess from "./InventorySuccess";
-
-type LocationVariant = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
-
-const buildVariant = (level: number): LocationVariant => {
-  let val: number = level > 6 ? 6 : level;
-  val = level < 1 ? 1 : level;
-  return ("h" + val) as LocationVariant;
-};
 
 const InventoryView = () => {
   const { t } = useTranslation();
@@ -81,48 +72,6 @@ const InventoryView = () => {
     });
   };
 
-  const buildInventory = (
-    inv: Inventory,
-    keyPrefix: string,
-    level?: number
-  ) => {
-    const actualLevel = level || 1;
-    const key = `${keyPrefix}_inv_${actualLevel}`;
-    return (
-      // padding to 0 ??
-      <List key={key} dense={true} sx={{ paddingTop: 0, paddingBottom: 0 }}>
-        <ListSubheader sx={{ height: (theme) => theme.spacing(7) }}>
-          <Typography
-            variant={buildVariant(actualLevel + 2)}
-            component={buildVariant(actualLevel + 1)}
-            key={key}
-          >
-            {inv.location.name}
-          </Typography>
-        </ListSubheader>
-        {inv.supplies &&
-          inv.supplies.map((supply, idx) => (
-            <InventoryLine
-              key={`${key}_line_${idx}`}
-              keyPrefix={key}
-              supply={supply}
-              level={actualLevel + 1}
-              checked={Boolean(
-                progress && progress.linesChecked.indexOf(supply.key) !== -1
-              )}
-              lineBehavior={globalState.userSettings.checkedLineBehavior}
-              status={progress?.status || ProgressStatus.UNKNOWN}
-              onClick={handleToggle(supply.key)}
-            />
-          ))}
-        {inv.children &&
-          inv.children.map((child, idx) =>
-            buildInventory(child, `${key}_${idx}`, actualLevel + 1)
-          )}
-      </List>
-    );
-  };
-
   const inventoryAppBar = (
     <InventoryBar
       inProgress={progress?.status === ProgressStatus.IN_PROGRESS}
@@ -159,7 +108,15 @@ const InventoryView = () => {
           margin: "1rem 1rem 0 1rem",
         }}
       >
-        {inventory && buildInventory(inventory, "")}
+        {inventory && (
+          <InventoryComponent
+            inventory={inventory}
+            keyPrefix={""}
+            onCheckboxToggle={handleToggle}
+            lineBehavior={globalState.userSettings.checkedLineBehavior}
+            progress={progress}
+          />
+        )}
       </Box>
       <InventorySuccess
         open={Boolean(progress && progress?.status === ProgressStatus.COMPLETE)}
